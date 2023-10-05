@@ -1,13 +1,12 @@
 const router = require('express').Router();
+const apiRoutes = require('./api');
 
-// we import the different routes
-const userRoutes = require('./user-routes');
-const thoughtRoutes = require('./thought-routes');
+// with this any request that starts with "/api" will be sent to the router in "api/index.js"
+router.use('/api', apiRoutes);
 
-// then we prefix all routes defined in the user-routes.js with "/users"
-router.use('/users', userRoutes);
-
-// and the same all routes defined in the thought-routes.js with "/thoughts"
-router.use('/thoughts', thoughtRoutes);
+// then we will andle any routes not found with a 404
+router.use((req, res) => {
+    return res.status(404).send('404 Not Found');
+});
 
 module.exports = router;
