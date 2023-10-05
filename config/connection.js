@@ -4,16 +4,9 @@ const mongoose = require('mongoose');
 const connectionString = process.env.MONGODB_URI || 'mongodb://localhost/social-network';
 
 // we have to connect to MongoDB using mongoose settings
-//we are using deprecation warnings
-mongoose.connect(connectionString, {
-  useFindAndModify: false,
-  // warning for findOneAndUpdate, findOneAndDelete
-  useNewUrlParser: true,
-  // warning for current URL string parser
-  useUnifiedTopology: true,
-  // warning for current Server
-  useCreateIndex: true
-  // warning for collection.ensureIndex
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/YourDBName', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 });
 
 // Export the connection for other files to use
