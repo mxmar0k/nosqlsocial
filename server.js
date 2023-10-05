@@ -27,7 +27,7 @@ app.use(routes);
 // Once the database connection is established, our server starts listening for incoming requests.
 db.once('open', () => {
     app.listen(PORT, () => {
-        console.log(`🌍 API server running on port ${PORT}!`);
+        console.log(`🌍 API server running on port http://localhost:${PORT}`);
     });
 })
 // Logging any database connection errors
