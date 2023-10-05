@@ -52,7 +52,24 @@ const userController = {
                 res.json(dbUserData);
             })
             .catch(err => res.status(500).json(err));
+    },
+
+
+     // we add a friend
+     addFriend({ params }, res) {
+        User.findByIdAndUpdate(params.userId, { $push: { friends: params.friendId } }, { new: true })
+        .then(dbUserData => res.json(dbUserData))
+        .catch(err => res.json(err));
+    },
+
+    // we remove a friend
+    removeFriend({ params }, res) {
+        User.findByIdAndUpdate(params.userId, { $pull: { friends: params.friendId } }, { new: true })
+        .then(dbUserData => res.json(dbUserData))
+        .catch(err => res.json(err));
     }
+
+
 };
 
 module.exports = userController;
