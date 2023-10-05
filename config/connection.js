@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const connectionString = process.env.MONGODB_URI || 'mongodb://localhost/social-network';
 
 // we have to connect to MongoDB using mongoose settings
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/YourDBName', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/HogwartsDB', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
