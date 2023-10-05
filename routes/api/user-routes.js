@@ -6,7 +6,9 @@ const {
   getUserById,
   createUser,
   updateUser,
-  deleteUser
+  deleteUser,
+  addFriend,
+  removeFriend
   //  we can add any other controller methods 
 } = require('../../controllers/user-controller');
 
@@ -20,6 +22,12 @@ router.route('/:id')
   .get(getUserById)     // we retrieve a specific user by their id from the database
   .put(updateUser)      // or update a specific user details by their id
   .delete(deleteUser);  // or delete a specific user by their id
+
+// add a friend and remove a friend
+router
+  .route('/:userId/friends/:friendId')
+  .post(addFriend)
+  .delete(removeFriend);
 
 // we can add more routes as we see fit
 
